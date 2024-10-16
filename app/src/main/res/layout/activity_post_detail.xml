@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.post.PostDetailActivity">
+
+    <!-- Auteur du post -->
+    <TextView
+        android:id="@+id/textViewDetailAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Author"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+
+    <!-- Date du post -->
+    <TextView
+        android:id="@+id/textViewDetailDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/textViewDetailAuthor"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"/>
+
+    <!-- Contenu du post -->
+    <TextView
+        android:id="@+id/textViewDetailContent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Post content goes here..."
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/textViewDetailDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
+
+    <!-- Section pour les boutons Like et Comment -->
+    <LinearLayout
+        android:id="@+id/actionsLinearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/textViewDetailContent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
+
+        <!-- Bouton Like -->
+        <ImageButton
+            android:id="@+id/imageButtonLike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_add_24"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/like_button" />
+
+        <!-- Nombre de likes -->
+        <TextView
+            android:id="@+id/textViewLikes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 likes"
+            android:layout_marginStart="8dp"
+            android:gravity="center_vertical" />
+
+        <!-- Espace entre les boutons -->
+        <Space
+            android:layout_width="25dp"
+            android:layout_height="0dp" />
+
+        <!-- Bouton Comment -->
+        <ImageButton
+            android:id="@+id/imageButtonComment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_add_24"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/comment_button" />
+
+        <!-- Nombre de commentaires -->
+        <TextView
+            android:id="@+id/textViewComment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 comments"
+            android:layout_marginStart="8dp"
+            android:gravity="center_vertical" />
+    </LinearLayout>
+
+    <!-- RecyclerView pour afficher les commentaires -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewComments"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/actionsLinearLayout"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
